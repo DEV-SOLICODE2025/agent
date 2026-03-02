@@ -1,0 +1,149 @@
+generated_at: 2026-03-02T00:00:00Z
+workflows:
+  generate-module:
+    file: workflows/generate-module.md
+    requiredInput:
+      module_name: ""
+      fields: []
+      relations: []
+      protected: "true|false"
+      pagination: "true|false"
+      searchable_fields: []
+      sortable_fields: []
+    skills: [api-design-skill, crud-skill, relation-skill, feature-module-skill, ui-layout-skill, auth-skill]
+  generate-crud:
+    file: workflows/generate-crud.md
+    requiredInput:
+      model_name: ""
+      fields: []
+      protected: "true|false"
+      with_relations: "true|false"
+      include_frontend: "true|false"
+    skills: [api-design-skill, crud-skill, relation-skill, ui-layout-skill]
+  init-project:
+    file: workflows/init-project.md
+    requiredInput:
+      project_name: ""
+      database_name: ""
+      include_frontend: "true|false"
+      include_auth: "true|false"
+      layout_type: "dashboard|public|hybrid"
+    skills: [project-skill, ui-layout-skill, auth-skill]
+  impl-feature:
+    file: workflows/impl-feature.md
+    requiredInput:
+      module_name: ""
+      feature_name: ""
+      feature_type: "endpoint|status-change|bulk-action|export|custom-logic"
+      protected: "true|false"
+      update_frontend: "true|false"
+    skills: [api-design-skill, refactor-skill, testing-skill, relation-skill]
+  audit-project:
+    file: workflows/audit-project.md
+    requiredInput:
+      scope: "backend|frontend|full-project"
+      deep_analysis: "true|false"
+      check_security: "true|false"
+      check_performance: "true|false"
+    skills: [refactor-skill, testing-skill]
+  repair-system:
+    file: workflows/repair-system.md
+    requiredInput:
+      issue_type: "validation|migration|route|auth|performance|unknown"
+      auto_fix: "true|false"
+    skills: [refactor-skill, relation-skill, testing-skill]
+  run-tests:
+    file: workflows/run-tests.md
+    requiredInput:
+      target: "module|auth|api|full-project"
+      coverage_level: "basic|standard|critical"
+      auto_repair_on_fail: "true|false"
+    skills: [testing-skill, refactor-skill]
+  optimize-performance:
+    file: workflows/optimize-performance.md
+    requiredInput:
+      scope: "backend|frontend|full-project"
+      apply_optimizations: "true|false"
+      strict_mode: "true|false"
+    skills: [refactor-skill, testing-skill, relation-skill]
+  analyse-besoin:
+    file: workflows/analyse-besoin.md
+    requiredInput: null
+    skills: [analyste-besoin]
+  architecture-contenu:
+    file: workflows/architecture-contenu.md
+    requiredInput: null
+    skills: [architecte-contenu]
+
+skills:
+  api-design-skill:
+    file: skills/api-design-skill.md
+    requiredInput:
+      resource_name: ""
+      fields: []
+      protected: "true|false"
+      pagination: "true|false"
+      searchable_fields: []
+      sortable_fields: []
+  project-skill:
+    file: skills/project-skill.md
+    requiredInput:
+      project_name: ""
+      database_name: ""
+      frontend_required: "true|false"
+      auth_required: "true|false"
+  crud-skill:
+    file: skills/crud-skill.md
+    requiredInput:
+      model_name: ""
+      fields: []
+      protected: "true|false"
+      with_relations: "true|false"
+  feature-module-skill:
+    file: skills/feature-module-skill.md
+    requiredInput:
+      module_name: ""
+      fields: []
+      relations: []
+      protected: "true|false"
+      pagination: "true|false"
+      searchable_fields: []
+      sortable_fields: []
+  auth-skill:
+    file: skills/auth-skill.md
+    requiredInput:
+      auth_type: "sanctum"
+      registration_enabled: "true|false"
+      email_verification: "true|false"
+      roles_enabled: "true|false"
+  refactor-skill:
+    file: skills/refactor-skill.md
+    requiredInput:
+      target: "module|controller|model|frontend|full-project"
+      optimize_queries: "true|false"
+      enforce_service_layer: "true|false"
+      clean_routes: "true|false"
+      frontend_cleanup: "true|false"
+  relation-skill:
+    file: skills/relation-skill.md
+    requiredInput:
+      relation_type: "one-to-many|many-to-many|one-to-one"
+      parent_model: ""
+      child_model: ""
+      foreign_key: ""
+      cascade_on_delete: "true|false"
+      create_pivot: "true|false"
+  testing-skill:
+    file: skills/testing-skill.md
+    requiredInput:
+      target: "module|auth|api|full-project"
+      coverage_level: "basic|standard|critical"
+      include_feature_tests: "true|false"
+      include_unit_tests: "true|false"
+  ui-layout-skill:
+    file: skills/ui-layout-skill.md
+    requiredInput:
+      layout_type: "dashboard|public|hybrid"
+      auth_required: "true|false"
+      sidebar_enabled: "true|false"
+      theme: "light|dark|system"
